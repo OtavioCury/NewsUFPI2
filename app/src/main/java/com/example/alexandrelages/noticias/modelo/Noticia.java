@@ -12,6 +12,9 @@ public class Noticia implements Serializable {
     private String conteudo;
     private Date data;
 
+    public Noticia(){
+    }
+
     public Noticia(String titulo, String conteudo, Date data) {
         this.titulo = titulo;
         this.conteudo = conteudo;
@@ -40,5 +43,14 @@ public class Noticia implements Serializable {
 
     public void setData(Date data) {
         this.data = data;
+    }
+
+    @Override
+    public String toString() {
+        return "Noticia{" +
+                "titulo='" + titulo + '\'' +
+                ", conteudo='" + conteudo + '\'' +
+                ", data=" + data +
+                '}';
     }
 }

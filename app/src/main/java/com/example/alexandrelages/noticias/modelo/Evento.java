@@ -20,6 +20,9 @@ public class Evento implements Serializable{
         this.dataFim = dataFim;
     }
 
+    public Evento(){
+    }
+
     public String getTitulo() {
         return titulo;
     }
