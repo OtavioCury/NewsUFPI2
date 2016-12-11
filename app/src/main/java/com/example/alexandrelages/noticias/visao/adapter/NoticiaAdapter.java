@@ -44,9 +44,9 @@ public class NoticiaAdapter extends RecyclerView.Adapter<NoticiaAdapter.Noticias
 
     public void onBindViewHolder(final NoticiasViewHolder holder, int position) {
         Noticia n = noticias.get(position);
-        holder.tituloNoticia.setText(n.getTitulo());
-        holder.conteudoNoticia.setText(n.getConteudo());
-        holder.dataNoticia.setText(n.getData().toString());
+        holder.tituloNoticia.setText(n.getTitle());
+        holder.conteudoNoticia.setText(n.getContent());
+        holder.dataNoticia.setText(n.getPublished_date().toString());
     }
 
     public static class NoticiasViewHolder extends RecyclerView.ViewHolder {

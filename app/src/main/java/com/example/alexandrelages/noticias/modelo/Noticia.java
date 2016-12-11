@@ -8,49 +8,49 @@ import java.util.Date;
  */
 
 public class Noticia implements Serializable {
-    private String titulo;
-    private String conteudo;
-    private Date data;
+    private String title;
+    private String content;
+    private Date published_date;
 
     public Noticia(){
     }
 
-    public Noticia(String titulo, String conteudo, Date data) {
-        this.titulo = titulo;
-        this.conteudo = conteudo;
-        this.data = data;
+    public Noticia(String title, String content, Date published_date) {
+        this.title = title;
+        this.content = content;
+        this.published_date = published_date;
     }
 
-    public String getTitulo() {
-        return titulo;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getConteudo() {
-        return conteudo;
+    public String getContent() {
+        return content;
     }
 
-    public void setConteudo(String conteudo) {
-        this.conteudo = conteudo;
+    public void setContent(String content) {
+        this.content = content;
     }
 
-    public Date getData() {
-        return data;
+    public Date getPublished_date() {
+        return published_date;
     }
 
-    public void setData(Date data) {
-        this.data = data;
+    public void setPublished_date(Date published_date) {
+        this.published_date = published_date;
     }
 
     @Override
     public String toString() {
         return "Noticia{" +
-                "titulo='" + titulo + '\'' +
-                ", conteudo='" + conteudo + '\'' +
-                ", data=" + data +
+                "title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", published_date=" + published_date +
                 '}';
     }
 }
