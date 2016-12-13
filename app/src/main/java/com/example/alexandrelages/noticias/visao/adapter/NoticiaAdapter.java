@@ -24,10 +24,12 @@ import static com.example.alexandrelages.noticias.R.mipmap.ic_launcher;
 public class NoticiaAdapter extends RecyclerView.Adapter<NoticiaAdapter.NoticiasViewHolder>{
     private final List<Noticia> noticias;
     private final Context context;
+    private final NoticiaOnClickListener noticiaOnClickListener;
 
-    public NoticiaAdapter(Context context, List<Noticia> noticias) {
+    public NoticiaAdapter(Context context, List<Noticia> noticias, NoticiaOnClickListener noticiaOnClickListener) {
         this.context = context;
         this.noticias = noticias;
+        this.noticiaOnClickListener = noticiaOnClickListener;
     }
 
     @Override
@@ -42,11 +44,20 @@ public class NoticiaAdapter extends RecyclerView.Adapter<NoticiaAdapter.Noticias
         return holder;
     }
 
-    public void onBindViewHolder(final NoticiasViewHolder holder, int position) {
+    public void onBindViewHolder(final NoticiasViewHolder holder, final int position) {
         Noticia n = noticias.get(position);
         holder.tituloNoticia.setText(n.getTitle());
         holder.conteudoNoticia.setText(n.getContent());
         holder.dataNoticia.setText(n.getPublished_date().toString());
+
+        if(noticiaOnClickListener != null){
+            holder.itemView.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View view) {
+                    noticiaOnClickListener.onClickNoticia(holder.itemView, position);
+                }
+            });
+        }
     }
 
     public static class NoticiasViewHolder extends RecyclerView.ViewHolder {
@@ -60,5 +71,9 @@ public class NoticiaAdapter extends RecyclerView.Adapter<NoticiaAdapter.Noticias
             conteudoNoticia = (TextView) itemView.findViewById(R.id.conteudoNoticia);
             dataNoticia = (TextView) itemView.findViewById(R.id.dataNoticia);
         }
+    }
+
+    public interface NoticiaOnClickListener{
+        public void onClickNoticia(View view, int idx);
     }
 }

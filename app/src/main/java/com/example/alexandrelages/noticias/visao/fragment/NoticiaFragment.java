@@ -10,12 +10,15 @@ import android.view.FrameStats;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.alexandrelages.noticias.R;
 import com.example.alexandrelages.noticias.modelo.Noticia;
+import com.example.alexandrelages.noticias.service.NoticiaServiceJSON;
 import com.example.alexandrelages.noticias.visao.adapter.NoticiaAdapter;
 import com.example.alexandrelages.noticias.visao.service.NoticiaService;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -44,11 +47,25 @@ public class NoticiaFragment extends Fragment{
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState){
         super.onActivityCreated(savedInstanceState);
-        pesquisaNoticias();
+        try {
+            pesquisaNoticias();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void pesquisaNoticias(){
-        this.noticias = NoticiaService.getNoticias(this.getContext());
-        recyclerView.setAdapter(new NoticiaAdapter(this.getContext(), noticias));
+    public void pesquisaNoticias() throws IOException{
+        this.noticias = NoticiaServiceJSON.getNoticias(getContext());
+        recyclerView.setAdapter(new NoticiaAdapter(this.getContext(), noticias, onClickNoticia()));
+    }
+
+    public NoticiaAdapter.NoticiaOnClickListener onClickNoticia() {
+        return new NoticiaAdapter.NoticiaOnClickListener(){
+            @Override
+            public void onClickNoticia(View view, int idx){
+                Noticia n = noticias.get(idx);
+                Toast.makeText(getContext(), n.getTitle(), Toast.LENGTH_SHORT).show();
+            }
+        };
     }
 }
