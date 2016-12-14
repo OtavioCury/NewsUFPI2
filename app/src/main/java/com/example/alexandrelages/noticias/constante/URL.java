@@ -5,6 +5,6 @@ package com.example.alexandrelages.noticias.constante;
  */
 
 public class URL {
-    public static final String URL_NOTICIAS = "http://10.28.15.49:1234/ServePHP/ProvasDoProfessor.php";
-    public static final String URL_EVENTOS = "http://10.28.15.49:1234/ServePHP/ProvasDoProfessor.php";
+    public static final String URL_NOTICIAS = "http://10.13.41.161/noticia/index.php/endpoint/get/content/articles?catid=8&limit=<L>&offset=<O>";
+    public static final String URL_EVENTOS = "";
 }

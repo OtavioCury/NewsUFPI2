@@ -25,19 +25,19 @@ public class NoticiaService {
                 "O encontro segue até às 17h50 com mais atividades e será realizado no Auditório Afonso Sena.\n" +
                 "\n" +
                 "Confira a programação completa:");
-        n.setPublished_date(data);
+        n.setPublished_date(0);
         noticias.add(n);
 
         Noticia n1 = new Noticia();
         n1.setTitle("PPGCF divulga resultado da prova escrita pós-recurso");
         n1.setContent("A Universidade Federal do Piauí (UFPI), por meio da Comissão de Seleção do Processo Seletivo do Edital 003/2016-PPGCF/UFPI para ingresso no Programa de Pós-Graduação em Ciências Farmacêuticas da UFPI referente ao biênio 2017-2019 torna pública, para os devidos fins, o resultado da prova subjetiva referente ao processo seletivo após avaliação dos recursos.");
-        n1.setPublished_date(data);
+        n1.setPublished_date(0);
         noticias.add(n1);
 
         Noticia n2 = new Noticia();
         n2.setTitle("Divulgado resultado da V etapa do Mestrado em Sociologia");
         n2.setContent("A Universidade Federal do Piauí (UFPI), por meio do Programa de Pós-Graduação em Sociologia torna público o resultado referente à V Etapa do processo seletivo do Mestrado em Sociologia - avaliação de currículos.");
-        n2.setPublished_date(data);
+        n2.setPublished_date(0);
         noticias.add(n2);
 
         return noticias;

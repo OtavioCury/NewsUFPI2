@@ -48,7 +48,7 @@ public class NoticiaAdapter extends RecyclerView.Adapter<NoticiaAdapter.Noticias
         Noticia n = noticias.get(position);
         holder.tituloNoticia.setText(n.getTitle());
         holder.conteudoNoticia.setText(n.getContent());
-        holder.dataNoticia.setText(n.getPublished_date().toString());
+        holder.dataNoticia.setText("Data da notícia: " + n.getDataDaNoticia());
 
         if(noticiaOnClickListener != null){
             holder.itemView.setOnClickListener(new View.OnClickListener(){
